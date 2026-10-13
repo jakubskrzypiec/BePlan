@@ -13,3 +13,7 @@ Uruchom dowolny serwer HTTP w katalogu `dist`, np. `python -m http.server 8000`,
 Workflow GitHub Actions publikuje katalog `dist` w GitHub Pages. W ustawieniach repozytorium wybierz **Pages → Source → GitHub Actions**.
 
 Formularz kontaktowy przygotowuje wiadomość w programie pocztowym odwiedzającego; nie ma backendu wysyłającego e-maile. Zdjęcia hero i przerywnika są ilustracjami koncepcyjnymi AI. Zdjęcia realizacji i logotypy pochodzą z materiałów BEPLAN.
+
+## Wariant do porównania
+
+Wariant z domem: https://jakubskrzypiec.github.io/BePlan/domy.html . Zmienia hero i przerywnik; pozostałe sekcje zachowują treści wersji komercyjnej. Grafika domu jest ilustracją koncepcyjną inspirowaną referencją, a nie dokumentacją realizacji BEPLAN.
