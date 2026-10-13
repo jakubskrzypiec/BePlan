@@ -17,3 +17,5 @@ Formularz kontaktowy przygotowuje wiadomość w programie pocztowym odwiedzając
 ## Wariant do porównania
 
 Wariant z domem: https://jakubskrzypiec.github.io/BePlan/domy.html . Zmienia hero i przerywnik; pozostałe sekcje zachowują treści wersji komercyjnej. Grafika domu jest ilustracją koncepcyjną inspirowaną referencją, a nie dokumentacją realizacji BEPLAN.
+
+Trzeci wariant z wnętrzem: https://jakubskrzypiec.github.io/BePlan/wnetrza.html . Koncepcyjna wizualizacja inspirowana materiałami realizacji BEPLAN; zmienione hero i przerywnik, wspólne portfolio i oferta.
