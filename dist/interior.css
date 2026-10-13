@@ -4,3 +4,7 @@
 
 .interior-variant .hero .hero-depth-brand{top:26%;filter:drop-shadow(0 2px 12px #25332c25)}
 @media(max-width:760px){.interior-variant .hero .hero-depth-brand{top:22%}}
+
+/* A softly drifting shadow only across the back wall. */
+.interior-shadow-plane{position:absolute;inset:0;z-index:0;overflow:hidden;pointer-events:none;mix-blend-mode:multiply}.interior-shadow-texture{position:absolute;inset:-5%;filter:blur(10px);background:radial-gradient(ellipse 34px 90px at 28% 29%,#30433322 0 45%,transparent 70%),radial-gradient(ellipse 28px 60px at 32% 37%,#30433326 0 40%,transparent 72%),radial-gradient(ellipse 45px 72px at 37% 27%,#30433320 0 40%,transparent 72%),radial-gradient(ellipse 25px 66px at 41% 43%,#30433326 0 40%,transparent 72%),radial-gradient(ellipse 40px 90px at 46% 34%,#30433320 0 40%,transparent 72%),radial-gradient(ellipse 33px 67px at 52% 42%,#30433322 0 45%,transparent 72%),repeating-linear-gradient(128deg,transparent 0 125px,#293e2f0d 138px,#293e2f15 149px,transparent 165px,transparent 220px);transform-origin:40% 35%;will-change:transform,opacity}
+@media(prefers-reduced-motion:reduce){.interior-shadow-texture{will-change:auto}}
