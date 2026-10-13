@@ -1,7 +1,7 @@
 const preference=matchMedia('(prefers-reduced-motion: reduce)');let paused=preference.matches;
 const pauseButton=document.querySelector('#motionToggle'),hero=document.querySelector('.hero'),sky=document.querySelector('.sky-image'),logoStrip=document.querySelector('.logo-strip');
-const layers=[{root:hero,animation:sky.animate([{transform:'translate3d(0,0,0)'},{transform:'translate3d(-50%,0,0)'}],{duration:150000,iterations:Infinity,direction:'alternate',easing:'linear'}),visible:false,hover:false},{root:logoStrip,animation:null,visible:false,hover:false}];
-layers[0].animation.currentTime=18000;
+const layers=[{root:hero,animation:null,visible:false,hover:false},{root:logoStrip,animation:null,visible:false,hover:false}];
+
 function updateLayers(){for(const layer of layers){if(!layer.animation)continue;if(paused||document.hidden||!layer.visible||layer.hover)layer.animation.pause();else layer.animation.play()}document.body.classList.toggle('motion-paused',paused||document.hidden);}
 function updatePause(){pauseButton.setAttribute('aria-pressed',String(paused));pauseButton.innerHTML=paused?'Włącz animacje <span aria-hidden="true">▶</span>':'Wstrzymaj animacje <span aria-hidden="true">Ⅱ</span>';updateLayers();}
 pauseButton.addEventListener('click',()=>{paused=!paused;updatePause()});preference.addEventListener('change',()=>{paused=preference.matches;updatePause()});document.addEventListener('visibilitychange',updateLayers);
@@ -11,3 +11,6 @@ new ResizeObserver(sizeLogos).observe(logoStrip);sizeLogos();
 logoStrip.addEventListener('pointerenter',()=>{layers[1].hover=true;updateLayers()});logoStrip.addEventListener('pointerleave',()=>{layers[1].hover=false;updateLayers()});
 const visibility=new IntersectionObserver(entries=>{for(const entry of entries){const layer=layers.find(x=>x.root===entry.target);if(layer)layer.visible=entry.isIntersecting;if(entry.target===hero)hero.dataset.motionVisible=String(entry.isIntersecting)}updateLayers()},{threshold:.02});layers.forEach(layer=>visibility.observe(layer.root));updatePause();
 const brandsDialog=document.querySelector('#brandsDialog'),brandsOpener=document.querySelector('#showAllBrands');brandsOpener.addEventListener('click',()=>{brandsDialog.showModal();brandsDialog.scrollTop=0});function closeBrands(){brandsDialog.close();brandsOpener.focus({preventScroll:true})}document.querySelector('#closeBrands').addEventListener('click',closeBrands);brandsDialog.addEventListener('cancel',e=>{e.preventDefault();closeBrands()});brandsDialog.addEventListener('click',e=>{if(e.target!==brandsDialog)return;const r=brandsDialog.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)closeBrands()});
+
+// Static complete photograph: only the roof masks the wordmark.
+const houseImage=document.querySelector('.hero-image');function maskHouseRoof(){const w=hero.clientWidth,h=hero.clientHeight,scale=Math.max(w/1672,h/941),positionX=innerWidth<=760?.53:.54,dx=(w-1672*scale)*positionX,dy=(h-941*scale)*.5;const points=[[403,358],[1208,252],[1354,500],[1354,941],[403,941]].map(([x,y])=>`${x*scale+dx}px ${y*scale+dy}px`);houseImage.style.clipPath='polygon('+points.join(',')+')'}new ResizeObserver(maskHouseRoof).observe(hero);maskHouseRoof();
